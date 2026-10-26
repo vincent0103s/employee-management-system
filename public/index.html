@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+        <p>Manage your organization's employee records</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2 id="form-title">Add Employee</h2>
+
+            <form id="employee-form">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="employee_id">Employee ID</label>
+                        <input id="employee_id" maxlength="20"
+                               pattern="[A-Za-z0-9_-]+"
+                               placeholder="EMP001" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="employee_name">Employee Name</label>
+                        <input id="employee_name" maxlength="100" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="department">Department</label>
+                        <input id="department" maxlength="100" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="designation">Designation</label>
+                        <input id="designation" maxlength="100" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" maxlength="150" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" type="tel" maxlength="20"
+                               pattern="[0-9+() -]{7,20}" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="salary">Salary</label>
+                        <input id="salary" type="number" min="0"
+                               max="9999999999.99" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="save-button">Add Employee</button>
+                    <button type="button" id="cancel-button"
+                            class="secondary" hidden>Cancel</button>
+                </div>
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="card">
+            <h2>Employee Directory</h2>
+
+            <div class="search-box">
+                <label for="search">Search Employees</label>
+                <input id="search" type="search"
+                       placeholder="Search by ID, name, department, email...">
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Salary</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-list">
+                        <tr><td colspan="8">Loading employees...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>Employee Management System</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
